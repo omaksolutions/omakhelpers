@@ -1,0 +1,3 @@
+include ':oUtils'
+include ':app'
+rootProject.name = "Omak Utilities"

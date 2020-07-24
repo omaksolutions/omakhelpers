@@ -1,0 +1,26 @@
+configurations {
+    deployerJars
+}
+
+dependencies {
+    deployerJars "ar.com.synergian:wagon-git:0.2.5" // plugin
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+        configuration = configurations.deployerJars
+        repository(url: "git:releases://https://Rajeev42:KPsQUQbrYpSrX82QXLr9@bitbucket.org/omakteam/omakhelpers.git") {
+            authentication(userName: "Rajeev42", password: "KPsQUQbrYpSrX82QXLr9")
+        }
+
+        snapshotRepository(url: "git:snapshots://https://Rajeev42:KPsQUQbrYpSrX82QXLr9@bitbucket.org/omakteam/omakhelpers-snapshot.git")
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url "https://raw.github.com/synergian/wagon-git/releases"}
+    }
+}
